@@ -11,13 +11,12 @@ OBJS = ${BUILD_DIR}/Interpreter.o \
 		${BUILD_DIR}/Parser.o \
 		${BUILD_DIR}/Scanner.o \
 
-
 SRCS = ${SRC_DIR}/Interpreter.cpp \
 		${SRC_DIR}/NonTerminal.cpp \
 		${SRC_DIR}/Terminal.cpp \
 		${SRC_DIR}/Parser.cpp \
 		${SRC_DIR}/Scanner.cpp \
-		${SRC_DIR}/main.cpp
+# 		${SRC_DIR}/main.cpp
 
 
 ${BUILD_DIR}:
@@ -25,8 +24,8 @@ ${BUILD_DIR}:
 
 all: ${BUILD_DIR}/main
 
-${BUILD_DIR}/main: ${SRCS} ${OBJS}
-	${CXX} -I include/ $^ -o $@
+${BUILD_DIR}/main: ${SRC_DIR}/main.cpp ${OBJS}
+	${CXX}  -I include/ $^ -o $@
 
 ${BUILD_DIR}/Interpreter.o: ${SRC_DIR}/Interpreter.cpp ${BUILD_DIR}/Scanner.o ${BUILD_DIR}/Parser.o
 	${CXX} ${CXX_FLAGS} $^ -o $@
