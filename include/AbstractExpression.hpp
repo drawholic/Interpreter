@@ -3,7 +3,7 @@
 
 #include <list>
 
-typedef value_type int;
+typedef int value_type;
 
 
 class AbstractExpression
