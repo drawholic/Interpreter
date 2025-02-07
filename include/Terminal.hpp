@@ -3,11 +3,13 @@
 
 #include "AbstractExpression.hpp"
 
+#include <iostream>
+
 class Terminal: public AbstractExpression
 {
 	value_type value;
 public:
-	Terminal();
+	Terminal(value_type);
 	value_type interpret() override;
 	void print() override;
 };
