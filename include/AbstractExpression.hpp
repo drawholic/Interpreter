@@ -16,7 +16,7 @@ public:
 };
 
 
-typedef std::list<AbstractExpression*> token_list
+typedef std::list<AbstractExpression*> token_list;
 
 
 #endif
