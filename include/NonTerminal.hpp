@@ -14,6 +14,7 @@ enum Operator{
 
 	LP,
 	RP,
+	NONE
 };
 
 class NonTerminal: public AbstractExpression
@@ -24,6 +25,11 @@ class NonTerminal: public AbstractExpression
 
 public:
 	NonTerminal();
+	NonTerminal(AbstractExpression*, AbstractExpression*);
+	NonTerminal(Operator);
+	NonTerminal(std::string&);
+
+
 	value_type interpret() override;
 	void print() override;
 
