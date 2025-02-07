@@ -11,8 +11,9 @@ class AbstractExpression
 
 
 public:
-	virtual value_type interpret();
-	virtual void print();
+	virtual ~AbstractExpression();
+	virtual value_type interpret() = 0;
+	virtual void print() = 0;
 };
 
 
