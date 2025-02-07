@@ -14,7 +14,7 @@ enum Operator{
 
 	LP,
 	RP,
-}
+};
 
 class NonTerminal: public AbstractExpression
 {
@@ -27,6 +27,6 @@ public:
 	value_type interpret() override;
 	void print() override;
 
-}
+};
 
 #endif
