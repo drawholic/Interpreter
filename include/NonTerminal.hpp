@@ -2,18 +2,18 @@
 #define NON_TERMINAL_HPP
 
 #include "AbstractExpression.hpp"
+#include <iostream>
+#include <cmath>
 
 enum Operator{
-	ADD,
-	SUB,
+	ADD, SUB,
 
-	MUL,
-	DIV,
+	MUL, DIV,
 
 	POW,
 
-	LP,
-	RP,
+	LP,	RP,
+	
 	NONE
 };
 
@@ -23,9 +23,15 @@ class NonTerminal: public AbstractExpression
 	AbstractExpression* left;
 	AbstractExpression* right;
 
+
+	Operator pick_op(std::string&);
+	void print_operator();
+	bool empty();
+
 public:
+	~NonTerminal() override;
 	NonTerminal();
-	NonTerminal(AbstractExpression*, AbstractExpression*);
+	NonTerminal(AbstractExpression*, AbstractExpression*, Operator);
 	NonTerminal(Operator);
 	NonTerminal(std::string&);
 
