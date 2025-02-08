@@ -13,9 +13,10 @@ enum Operator{
 	POW,
 
 	LP,	RP,
-	
+
 	NONE
 };
+
 
 class NonTerminal: public AbstractExpression
 {
@@ -23,10 +24,9 @@ class NonTerminal: public AbstractExpression
 	AbstractExpression* left;
 	AbstractExpression* right;
 
-
+	Operator pick_op(char&);
 	Operator pick_op(std::string&);
 	void print_operator();
-	bool empty();
 
 public:
 	~NonTerminal() override;
@@ -34,8 +34,14 @@ public:
 	NonTerminal(AbstractExpression*, AbstractExpression*, Operator);
 	NonTerminal(Operator);
 	NonTerminal(std::string&);
+	NonTerminal(char&);
 
-
+	void set_left(AbstractExpression*);
+	void set_right(AbstractExpression*);
+	bool empty();
+	
+	Operator get_op();
+	bool is_term() override;
 	value_type interpret() override;
 	void print() override;
 
