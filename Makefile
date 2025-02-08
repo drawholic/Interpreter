@@ -26,7 +26,7 @@ ${BUILD_DIR}:
 all: ${BUILD_DIR}/main
 
 ${BUILD_DIR}/main: ${SRC_DIR}/main.cpp ${OBJS}
-	${CXX}  -I include/ $^ -o $@
+	${CXX} -g -I include/ $^ -o $@
 
 ${BUILD_DIR}/Interpreter.o: ${SRC_DIR}/Interpreter.cpp ${BUILD_DIR}/Scanner.o ${BUILD_DIR}/Parser.o
 	${CXX} ${CXX_FLAGS} $^ -o $@
