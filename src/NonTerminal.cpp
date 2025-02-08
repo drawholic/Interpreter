@@ -97,6 +97,8 @@ void NonTerminal::print_operator()
 		case POW: std::cout << "^"; break;
 		case LP: std::cout << "("; break;
 		case RP: std::cout << ")"; break;
+		case NEG: std::cout << "_"; break;
+
 		case NONE: std::cout << "NONE"; break;
 	}
 };
@@ -117,6 +119,8 @@ value_type NonTerminal::interpret()
 
 	case POW: res = std::pow(left_res, right_res); break;
 
+	case NEG: res = -right_res;
+
 	case LP: break;
 	case RP: break;
 
@@ -136,6 +140,7 @@ Operator NonTerminal::pick_op(std::string& str_op)
 		case '^': return POW; break;
 		case '(': return LP; break;
 		case ')': return RP; break;
+		case '_': return NEG; break;
 		default: return NONE; break;
 	}
 };
@@ -151,6 +156,8 @@ Operator NonTerminal::pick_op(char& char_op)
 		case '^': return POW; break;
 		case '(': return LP; break;
 		case ')': return RP; break;
+		case '_': return NEG; break;
+
 		default: return NONE; break;
 	}
 };
