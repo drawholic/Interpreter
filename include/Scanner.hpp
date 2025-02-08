@@ -16,7 +16,8 @@ class Scanner{
 	static bool isspace(char);
 
 	str_iter find_past_number(str_iter, str_iter);
-
+	bool is_negate(str_iter, str_iter);
+	bool is_unary_add(str_iter, str_iter);
 public:
 	Scanner();
 	void clear_whitespaces(std::string&);
