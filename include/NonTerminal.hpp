@@ -14,6 +14,8 @@ enum Operator{
 
 	LP,	RP,
 
+	NEG, 
+	
 	NONE
 };
 
