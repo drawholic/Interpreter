@@ -7,6 +7,24 @@ NonTerminal::NonTerminal()
 	right = NULL;
 };
 
+bool NonTerminal::is_term()
+{
+	return false;
+}
+
+void NonTerminal::set_left(AbstractExpression* l ){
+	left = l;
+}
+
+void NonTerminal::set_right(AbstractExpression* r){
+	right = r;
+}
+
+Operator NonTerminal::get_op()
+{
+	return op;
+};
+
 NonTerminal::NonTerminal(
 	AbstractExpression* _left,
 	AbstractExpression* _right, 
@@ -29,6 +47,14 @@ NonTerminal::NonTerminal(std::string& str)
 	left = NULL,
 	right = NULL;
 };
+
+NonTerminal::NonTerminal(char& c)
+{
+	op = pick_op(c);
+	left = NULL,
+	right = NULL;
+};
+
 
 void NonTerminal::print()
 {
@@ -113,6 +139,22 @@ Operator NonTerminal::pick_op(std::string& str_op)
 		default: return NONE; break;
 	}
 };
+
+Operator NonTerminal::pick_op(char& char_op)
+{
+	switch(char_op)
+	{
+		case '+': return ADD; break;
+		case '-': return SUB; break;
+		case '*': return MUL; break;
+		case '/': return DIV; break;
+		case '^': return POW; break;
+		case '(': return LP; break;
+		case ')': return RP; break;
+		default: return NONE; break;
+	}
+};
+
 
 NonTerminal::~NonTerminal()
 {
