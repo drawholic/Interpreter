@@ -3,13 +3,24 @@
 
 #include <string>
 #include "AbstractExpression.hpp"
+#include "NonTerminal.hpp"
+#include "Terminal.hpp"
+
+#include <algorithm>
+#include <cctype>
+
+typedef std::string::iterator str_iter;
 
 class Scanner{
+
+	static bool isspace(char);
+
+	str_iter find_past_number(str_iter, str_iter);
 
 public:
 	Scanner();
 	void clear_whitespaces(std::string&);
-	void gen_expressions_list(std::list<AbstractExpression*>&);
+	void gen_expressions_list(std::string&, token_list&);
 
 
 };
