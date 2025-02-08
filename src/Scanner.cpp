@@ -22,11 +22,11 @@ void Scanner::gen_expressions_list(std::string& input, token_list& tokens)
 
 	NonTerminal* non_term;
 	Terminal* term;
+	str_iter start = input.begin();
 	str_iter pend = input.end();
-	str_iter it = input.begin();
+	str_iter it = start;
 
 	while(it != pend)
-	// for(str_iter it = input.begin(); it != pend; it++)
 	{
 		temp_c = *it;
 		if(std::isdigit(temp_c))
@@ -37,12 +37,32 @@ void Scanner::gen_expressions_list(std::string& input, token_list& tokens)
 			tokens.push_back(term);
 			it = past_number;
 		}else{
-			non_term = new NonTerminal(temp_c);
+			if(is_unary_add(it, start))
+			{
+				it++;
+				continue;
+			}
+			if(is_negate(it, start))
+			{
+				non_term = new NonTerminal(NEG);
+			}else{
+				non_term = new NonTerminal(temp_c);
+			};
 			tokens.push_back(non_term);
 			it++;
 		}
 	};
 };
+
+bool Scanner::is_unary_add(str_iter iter, str_iter start)
+{
+	return *iter == '+' && (iter == start || *std::next(iter, -1) == '(' || *std::next(iter, 1) == ')');
+};
+
+bool Scanner::is_negate(str_iter iter, str_iter start)
+{
+	return *iter == '-' && (iter == start || *std::next(iter, -1) == '(' );
+}
 
 str_iter Scanner::find_past_number(str_iter num_p, str_iter pend)
 {
