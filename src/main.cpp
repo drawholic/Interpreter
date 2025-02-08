@@ -1,6 +1,11 @@
+#include "Interpreter.hpp"
+#include "Terminal.hpp"
+#include "NonTerminal.hpp"
 
 int main(int argc, char const *argv[])
 {
-	/* code */
+	Interpreter interp;
+ 	
+
 	return 0;
 }
