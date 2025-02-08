@@ -13,5 +13,10 @@ value_type Terminal::interpret()
 
 void Terminal::print()
 {
-	std::cout << value << std::endl;
+	std::cout << "Terminal " << value << std::endl;
+};
+
+bool Terminal::is_term()
+{
+	return true;
 };
