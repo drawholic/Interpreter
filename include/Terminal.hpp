@@ -8,10 +8,15 @@
 class Terminal: public AbstractExpression
 {
 	value_type value;
+
 public:
+
 	Terminal(value_type);
+
 	value_type interpret() override;
 	void print() override;
+	bool is_term() override;
+
 };
 
 #endif
