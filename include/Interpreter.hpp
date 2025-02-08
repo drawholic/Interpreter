@@ -14,6 +14,8 @@ class Interpreter
 	std::string input_buf;
 	token_list tokens;
 
+	void print_tokens();
+
 public:
 	Interpreter();
 	void scan();
