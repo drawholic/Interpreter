@@ -11,6 +11,11 @@ class Parser
 
 	static bool is_add_sub(AbstractExpression*);
 	static bool is_mul_div(AbstractExpression*);
+	static bool is_left_parenthesis(AbstractExpression*);
+	static bool is_right_parenthesis(AbstractExpression*);
+	static bool is_parenthesis(AbstractExpression*);
+
+
 
 public:
 	Parser();
